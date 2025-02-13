@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/images/flower01.jpg');
+    background-image: url("images/flower01.jpg');
     /* Make sure you have this image */
     background-size: cover;
     background-position: center;
