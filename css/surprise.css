@@ -1,3 +1,11 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-screen Background */
 body {
     display: flex;
     justify-content: center;
@@ -16,7 +24,7 @@ body {
     color: #fff;
 }
 
-/* Falling Stars Animation */
+/* Falling Stars */
 .star {
     position: absolute;
     width: 5px;
@@ -28,33 +36,38 @@ body {
     animation: fall linear infinite;
 }
 
+/* Button */
 .surprise-button {
-    margin-top: 300px;
-    padding: 10px 20px;
+    margin-top: 250px;
+    padding: 12px 24px;
     font-size: 18px;
     background-color: #ff4081;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Footer Styling */
+.surprise-button:hover {
+    background-color: #e6006d;
+}
+
+/* Footer */
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 5px 0;
-    background: rgba(244, 241, 241, 0.6);
-    /* Light color with transparency */
+    padding: 8px 0;
+    background: rgba(244, 241, 241, 0.4); /* Transparent effect */
     color: #d00000;
-    /* Deep red text */
     font-size: 15px;
     font-family: 'Arial', sans-serif;
     font-weight: bold;
 }
 
+/* Falling Stars Animation */
 @keyframes fall {
     from {
         transform: translateY(-10vh);
@@ -70,22 +83,24 @@ body {
 /* Falling Moon */
 .moon {
     position: absolute;
-    top: -100px;
+    top: -120px;
     left: 50%;
     width: 100px;
     height: 100px;
-    background: url('moon.png') no-repeat center;
+    background: url('images/moon.png') no-repeat center;
     background-size: contain;
-    animation: moonfall 4s ease-in-out forwards;
+    animation: moonfall 5s ease-in-out forwards;
 }
 
 @keyframes moonfall {
     from {
-        top: -100px;
+        top: -120px;
+        opacity: 0;
     }
 
     to {
         top: 20px;
+        opacity: 1;
     }
 }
 
@@ -120,24 +135,21 @@ body {
 }
 
 @keyframes heartbeat {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1) rotate(-45deg);
     }
-
     50% {
         transform: scale(1.2) rotate(-45deg);
     }
 }
 
-/* Romantic Message Styling */
+/* Romantic Message */
 .message {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 36px;
+    font-size: clamp(24px, 5vw, 40px); /* Responsive font */
     font-weight: bold;
     font-family: 'Dancing Script', cursive;
     color: #fea900;
@@ -146,7 +158,7 @@ body {
     overflow: hidden;
     border-right: 3px solid white;
     width: 0;
-    animation: typing 4s steps(30, end) forwards, blink 0.8s infinite, glow 2s infinite alternate;
+    animation: typing 4s steps(30, end) forwards, blink 0.8s infinite;
 }
 
 /* Typing Effect */
@@ -154,13 +166,41 @@ body {
     from {
         width: 0;
     }
-
     to {
-        width: 50%;
+        width: 60%;
     }
 }
 
-/* Hidden Audio */
+/* Cursor Blinking */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Hidden Background Music */
 #background-music {
     display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .message {
+        font-size: clamp(20px, 4vw, 35px);
+        width: 80%;
+    }
+    .surprise-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .message {
+        font-size: clamp(18px, 3.5vw, 30px);
+        width: 90%;
+    }
+    .footer {
+        font-size: 12px;
+    }
 }
