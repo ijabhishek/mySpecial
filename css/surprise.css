@@ -1,0 +1,166 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #0b1d38;
+    font-family: 'Courier New', monospace;
+    background-image: url("/images/moon.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Falling Stars Animation */
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    box-shadow: 0 0 10px white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+.surprise-button {
+    margin-top: 300px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    background: rgba(244, 241, 241, 0.6);
+    /* Light color with transparency */
+    color: #d00000;
+    /* Deep red text */
+    font-size: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* Falling Moon */
+.moon {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url('moon.png') no-repeat center;
+    background-size: contain;
+    animation: moonfall 4s ease-in-out forwards;
+}
+
+@keyframes moonfall {
+    from {
+        top: -100px;
+    }
+
+    to {
+        top: 20px;
+    }
+}
+
+/* Heart Animation */
+.heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -50px;
+    left: 0;
+}
+
+.heart:after {
+    left: 50px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+/* Romantic Message Styling */
+.message {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    color: #fea900;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards, blink 0.8s infinite, glow 2s infinite alternate;
+}
+
+/* Typing Effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 50%;
+    }
+}
+
+/* Hidden Audio */
+#background-music {
+    display: none;
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/images/flower01.jpg');
+    /* Make sure you have this image */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    overflow: hidden;
+}
+
+.surprise-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Glowing Message Box */
+.message-box {
+    text-align: center;
+    font-size: 30px;
+    max-width: 80%;
+    padding: 20px;
+    background: rgba(255, 0, 127, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 20px pink;
+    text-shadow: 0 0 10px white;
+}
+
+/* Typing Effect */
+.typing-text {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white;
+    width: 0;
+    animation: typing 6s steps(40, end) forwards, blink 0.8s infinite;
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    background: rgba(244, 241, 241, 0.6);
+    /* Light color with transparency */
+    color: #d00000;
+    /* Deep red text */
+    font-size: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Falling Hearts */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    transform: rotate(-45deg);
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) rotate(-45deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(45deg);
+        opacity: 0;
+    }
+}
