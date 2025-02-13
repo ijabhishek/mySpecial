@@ -31,7 +31,7 @@ body {
 .quote {
     font-size: clamp(20px, 4vw, 30px); /* Responsive font */
     color: #d63384;
-    margin-top: 30px;
+    margin-top: 10px;
     animation: fadeIn 2s ease-in-out;
 }
 
