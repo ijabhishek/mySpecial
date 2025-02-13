@@ -1,36 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
+/* Reset Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Styling */
 body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("images/flower01.jpg');
-    /* Make sure you have this image */
+    background-image: url("images/flower01.jpg"); /* FIXED MISSING QUOTE */
     background-size: cover;
     background-position: center;
     font-family: 'Dancing Script', cursive;
     color: white;
     overflow: hidden;
+    text-align: center;
 }
 
+/* Surprise Button */
 .surprise-button {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 24px;
+    font-size: 20px;
     background-color: #ff4081;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.surprise-button:hover {
+    background-color: #e6006d;
 }
 
 /* Glowing Message Box */
 .message-box {
-    text-align: center;
-    font-size: 30px;
+    font-size: clamp(20px, 4vw, 32px); /* Responsive Font */
     max-width: 80%;
     padding: 20px;
     background: rgba(255, 0, 127, 0.2);
@@ -45,31 +59,13 @@ body {
     overflow: hidden;
     border-right: 3px solid white;
     width: 0;
-    animation: typing 6s steps(40, end) forwards, blink 0.8s infinite;
+    animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
 }
-
-/* Footer Styling */
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 5px 0;
-    background: rgba(244, 241, 241, 0.6);
-    /* Light color with transparency */
-    color: #d00000;
-    /* Deep red text */
-    font-size: 15px;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-}
-
 
 @keyframes typing {
     from {
         width: 0;
     }
-
     to {
         width: 100%;
     }
@@ -126,9 +122,42 @@ body {
         transform: translateY(-10vh) rotate(-45deg);
         opacity: 1;
     }
-
     to {
         transform: translateY(110vh) rotate(45deg);
         opacity: 0;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    background: rgba(244, 241, 241, 0.6); /* Transparent effect */
+    color: #d00000;
+    font-size: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .message-box {
+        font-size: 24px;
+    }
+    .footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .message-box {
+        font-size: 18px;
+    }
+    .footer {
+        font-size: 12px;
+        padding: 5px;
     }
 }
